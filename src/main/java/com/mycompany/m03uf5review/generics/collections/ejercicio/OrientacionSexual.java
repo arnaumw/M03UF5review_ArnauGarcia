@@ -11,6 +11,6 @@ package com.mycompany.m03uf5review.generics.collections.ejercicio;
  */
 public enum OrientacionSexual {
     
-    HETERO, LESBIANA, GAY, BISEXUAL;
+    HETERO, HOMOSEXUAL, BISEXUAL;
     
 }
