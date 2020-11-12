@@ -103,7 +103,7 @@ public class RegExprMain {
         boolean p4 = validateTLFspain("+34603835237");
         boolean p5 = validateMATRICULA("1234 JPN");
         boolean p6 = validateFECHA("11/11/2020");
-        boolean p7 = validateEMAIL("pep.mendez.tushuevos.redondos@copernic");
+        boolean p7 = validateEMAIL("pep.mendez.prueba@copernic");
         
         
         System.out.println("Comprovación NIF: " + p1);
