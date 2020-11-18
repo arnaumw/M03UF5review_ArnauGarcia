@@ -33,6 +33,8 @@ public class EjercicioMain {
         candidatos.add( new Persona(2, Sexo.MUJER, 22, false, OrientacionSexual.HETERO, Formacion.GRADO, OrientacionPolitica.IZQUIERDA));
         candidatos.add( new Persona(3, Sexo.MUJER, 30, false, OrientacionSexual.HOMOSEXUAL, Formacion.GRADO_SUPERIOR, OrientacionPolitica.CENTRO));
         candidatos.add( new Persona(4, Sexo.MUJER, 30, true, OrientacionSexual.HOMOSEXUAL, Formacion.GRADO_SUPERIOR, OrientacionPolitica.CENTRO));
+        candidatos.add( new Persona(5, Sexo.MUJER, 25, false, OrientacionSexual.BISEXUAL, Formacion.GRADO_SUPERIOR, OrientacionPolitica.CENTRO));
+        
         
         MatcherImplementation m1 = new MatcherImplementation();
         

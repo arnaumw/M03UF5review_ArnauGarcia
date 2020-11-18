@@ -21,8 +21,8 @@ public class RegExprMain {
      * Expresion regular que valide NIF
      */
 
-    static boolean validateNIF(String nif) {
-        Pattern p = Pattern.compile("\\d{8}[A-Z]");
+    public static boolean validateNIF(String nif) {
+        Pattern p = Pattern.compile("\\d{8}[^AEIOU]");
         Matcher m = p.matcher(nif);
         return m.matches();
     } 
@@ -31,7 +31,7 @@ public class RegExprMain {
      * Expresión regular que valide NIE
      */
     
-    static boolean validateNIE(String nie) {
+    public static boolean validateNIE(String nie) {
         Pattern p = Pattern.compile("[XYZ]\\d{7}[A-Z]");
         Matcher m = p.matcher(nie);
         return m.matches();
@@ -41,8 +41,8 @@ public class RegExprMain {
      * Expresión regular que valide un telefono de movil
      */
     
-    static boolean validateTLF(String tlf) {
-        Pattern p = Pattern.compile("[+]\\d{2}\\d{9}");
+    public static boolean validateTLF(String tlf) {
+        Pattern p = Pattern.compile("[\\+]\\d{2}\\d{9}");
         Matcher m = p.matcher(tlf);
         return m.matches();
     } 
@@ -52,8 +52,8 @@ public class RegExprMain {
      * Expresión regular que valide un telefono de España
      */
     
-    static boolean validateTLFspain(String tlfspain) {
-        Pattern p = Pattern.compile("[+34]*\\d{9}");
+    public static boolean validateTLFspain(String tlfspain) {
+        Pattern p = Pattern.compile("[\\+34]*\\d{9}");
         Matcher m = p.matcher(tlfspain);
         return m.matches();
     } 
@@ -64,7 +64,7 @@ public class RegExprMain {
      * mayúscula sin vocales
      */
     
-    static boolean validateMATRICULA(String matri) {
+    public static boolean validateMATRICULA(String matri) {
         Pattern p = Pattern.compile("\\d{4}\\p{Blank}[^AEIOU]{3}");
         Matcher m = p.matcher(matri);
         return m.matches();
@@ -75,7 +75,7 @@ public class RegExprMain {
      * Expresión regular que valide una fecha formato dd/mm/aaaa
      */
     
-    static boolean validateFECHA(String fecha) {
+    public static boolean validateFECHA(String fecha) {
         Pattern p = Pattern.compile("([0-2][0-9]|3[0-1])(/)(0[1-9]|1[0-2])(/)(\\d{4})");
         Matcher m = p.matcher(fecha);
         return m.matches();
@@ -86,9 +86,19 @@ public class RegExprMain {
      * Expresión regular que valide un email
      */
     
-    static boolean validateEMAIL(String email) {
-        Pattern p = Pattern.compile("^[a-zA-Z0-9._-]*@[a-zA-Z0-9.]*.+([a-z]{3})$"); 
+    public static boolean validateEMAIL(String email) {
+        Pattern p = Pattern.compile("^\\D[a-zA-Z0-9._-]*@([a-zA-Z0-9.]+\\.)+([a-z]{3})$"); 
         Matcher m = p.matcher(email);
+        return m.matches();
+    } 
+    
+    /**
+     * Expresión regular que valide una clave en la forma AA999AA
+     */
+    
+    public static boolean validateCLAVE(String clave) {
+        Pattern p = Pattern.compile("^(([A-Z][A-Z])(\\d{3}))\\2$"); 
+        Matcher m = p.matcher(clave);
         return m.matches();
     } 
 
@@ -103,7 +113,8 @@ public class RegExprMain {
         boolean p4 = validateTLFspain("+34603835237");
         boolean p5 = validateMATRICULA("1234 JPN");
         boolean p6 = validateFECHA("11/11/2020");
-        boolean p7 = validateEMAIL("pep.mendez.prueba@copernic");
+        boolean p7 = validateEMAIL("pep.mendez.prueba@copernic.cat");
+        boolean p8 = validateCLAVE("AA999AA");
         
         
         System.out.println("Comprovación NIF: " + p1);
@@ -113,6 +124,7 @@ public class RegExprMain {
         System.out.println("Comprovación Matricula: " + p5);
         System.out.println("Comprovación Fecha: " + p6);
         System.out.println("Comprovación Email: " + p7);
+        System.out.println("Comprovación Clave: " + p8);
     }
     
 }
